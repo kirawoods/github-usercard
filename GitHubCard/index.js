@@ -105,38 +105,6 @@ function userCardCreator(userObject){
   bio.textContent = "Bio: " + userObject.data.bio;
   following.appendChild(bio);
 
-//   const article = document.createElement('div');
-//   article.classList.add('article')
-
-//   const title = document.createElement('h2');
-//   title.textContent = articleText.title;
-//   article.appendChild(title);
-
-//   const date = document.createElement('p');
-//   date.classList.add('date');
-//   date.textContent = articleText.date;
-//   article.appendChild(date);
-
-//   const paragraph1 = document.createElement('p');
-//   paragraph1.textContent = articleText.firstParagraph; 
-//   article.appendChild(paragraph1); 
-
-//   const paragraph2 = document.createElement('p');
-//   paragraph2.textContent = articleText.secondParagraph; 
-//   article.appendChild(paragraph2); 
-
-//   const paragraph3 = document.createElement('p');
-//   paragraph3.textContent = articleText.thirdParagraph; 
-//   article.appendChild(paragraph3); 
-
-//   const button = document.createElement('span');
-//   button.classList.add('expandButton');
-//   button.textContent = "Expand Article";
-//   button.addEventListener('click', (e) => {
-//     article.classList.toggle('article-open');
-// });
-  // article.appendChild(button);
-
   return userCard;
 }
 
