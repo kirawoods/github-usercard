@@ -63,8 +63,47 @@ function userCardCreator(userObject){
   userCard.classList.add('card');
 
   const UserImage = document.createElement('img');
-  UserImage.src = userObject.data.avatarUrl;
+  UserImage.src = userObject.data.avatar_url;
   userCard.appendChild(UserImage);
+
+  const userCardInfo = document.createElement('div');
+  userCardInfo.classList.add('card');
+  userCard.appendChild(userCardInfo);
+
+  const name = document.createElement('h3');
+  name.classList.add('name');
+  name.textContent = userObject.data.name;
+  userCardInfo.appendChild(name);
+
+  const username = document.createElement('p');
+  username.classList.add('username');
+  username.textContent = userObject.data.login;
+  name.appendChild(username);
+
+  const location = document.createElement('p');
+  location.textContent = "Location: " + userObject.data.location;
+  username.appendChild(location);
+
+  const profile = document.createElement('p');
+  profile.textContent = "Profile: " 
+  location.appendChild(profile); 
+
+  const profileLink = document.createElement('a');
+  profileLink.href = userObject.data.html_url;
+  profileLink.textContent = userObject.data.html_url; 
+  profile.appendChild(profileLink);
+
+  const followers = document.createElement('p');
+  followers.textContent = "Followers: " + userObject.data.followers;
+  profile.appendChild(followers);
+
+  const following = document.createElement('p');
+  following.textContent = "Following: " + userObject.data.following;
+  followers.appendChild(following);
+
+  const bio = document.createElement('p');
+  bio.textContent = "Bio: " + userObject.data.bio;
+  following.appendChild(bio);
 
 //   const article = document.createElement('div');
 //   article.classList.add('article')
