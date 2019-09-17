@@ -3,6 +3,19 @@
            https://api.github.com/users/<your name>
 */
 
+axios.get('https://api.github.com/users/kirawoods')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
    data in order to use it to build your component function 
@@ -45,6 +58,59 @@ const followersArray = [];
 </div>
 
 */
+function userCardCreator(userObject){
+  const userCard = document.createElement('div');
+  userCard.classList.add('card');
+
+  const UserImage = document.createElement('img');
+  UserImage.src = userObject.data.avatarUrl;
+  userCard.appendChild(UserImage);
+
+//   const article = document.createElement('div');
+//   article.classList.add('article')
+
+//   const title = document.createElement('h2');
+//   title.textContent = articleText.title;
+//   article.appendChild(title);
+
+//   const date = document.createElement('p');
+//   date.classList.add('date');
+//   date.textContent = articleText.date;
+//   article.appendChild(date);
+
+//   const paragraph1 = document.createElement('p');
+//   paragraph1.textContent = articleText.firstParagraph; 
+//   article.appendChild(paragraph1); 
+
+//   const paragraph2 = document.createElement('p');
+//   paragraph2.textContent = articleText.secondParagraph; 
+//   article.appendChild(paragraph2); 
+
+//   const paragraph3 = document.createElement('p');
+//   paragraph3.textContent = articleText.thirdParagraph; 
+//   article.appendChild(paragraph3); 
+
+//   const button = document.createElement('span');
+//   button.classList.add('expandButton');
+//   button.textContent = "Expand Article";
+//   button.addEventListener('click', (e) => {
+//     article.classList.toggle('article-open');
+// });
+  // article.appendChild(button);
+
+  return userCard;
+}
+
+const cardContainer = document.querySelector('.cards');
+
+axios.get('https://api.github.com/users/kirawoods')
+    .then( response => {
+      let newUserCard = userCardCreator(response);
+      cardContainer.appendChild(newUserCard);
+    })
+    .catch( error => {
+        console.log("Error:", error);
+    })
 
 /* List of LS Instructors Github username's: 
   tetondan
